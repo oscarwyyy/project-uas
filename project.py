@@ -171,3 +171,51 @@ listbox_pengeluaran.grid(row=4, column=0, columnspan=2, padx=10, pady=10)
 
 label_total_pengeluaran = tk.Label(frame_pengeluaran, text="Total Pengeluaran: Rp 0", font=("Arial", 12, "bold"), bg="#ffffff")
 label_total_pengeluaran.grid(row=5, column=0, columnspan=2, pady=5)
+
+# Frame untuk Pendapatan
+frame_pendapatan = tk.LabelFrame(frame_main, text="Pendapatan", font=("Arial", 14), bg="#ffffff", bd=2)
+frame_pendapatan.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
+
+label_jumlah_pendapatan = tk.Label(frame_pendapatan, text="Jumlah Pendapatan (Rp):", font=("Arial", 12), bg="#ffffff")
+label_jumlah_pendapatan.grid(row=0, column=0, padx=10, pady=5, sticky="w")
+
+entry_jumlah_pendapatan = tk.Entry(frame_pendapatan, font=("Arial", 12))
+entry_jumlah_pendapatan.grid(row=0, column=1, padx=10, pady=5)
+
+button_tambah_pendapatan = tk.Button(frame_pendapatan, text="Tambah Pendapatan", command=tambah_pendapatan, bg="#4CAF50", fg="white", font=("Arial", 12))
+button_tambah_pendapatan.grid(row=1, column=0, columnspan=2, pady=10)
+
+button_hapus_pendapatan = tk.Button(frame_pendapatan, text="Hapus Pendapatan Terpilih", command=hapus_pendapatan, bg="#F44336", fg="white", font=("Arial", 12))
+button_hapus_pendapatan.grid(row=2, column=0, columnspan=2, pady=5)
+
+listbox_pendapatan = tk.Listbox(frame_pendapatan, height=6, font=("Arial", 12))
+listbox_pendapatan.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
+
+label_total_pendapatan = tk.Label(frame_pendapatan, text="Total Pendapatan: Rp 0", font=("Arial", 12, "bold"), bg="#ffffff")
+label_total_pendapatan.grid(row=4, column=0, columnspan=2, pady=5)
+
+# Frame untuk Saldo
+frame_saldo = tk.Frame(frame_main, bg="#ffffff", bd=2)
+frame_saldo.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+
+label_saldo = tk.Label(frame_saldo, text="Saldo: Rp 0", font=("Arial", 14, "bold"), bg="#ffffff")
+label_saldo.grid(row=0, column=0, padx=10, pady=10)
+
+button_hitung_saldo = tk.Button(frame_saldo, text="Hitung Saldo", command=hitung_saldo, bg="#2196F3", fg="white", font=("Arial", 12))
+button_hitung_saldo.grid(row=1, column=0, pady=10)
+
+button_grafik = tk.Button(frame_saldo, text="Tampilkan Grafik", command=tampilkan_grafik, bg="#2196F3", fg="white", font=("Arial", 12))
+button_grafik.grid(row=2, column=0, pady=10)
+
+# Tombol Reset
+button_reset = tk.Button(root, text="Reset Data", command=reset_data, bg="#FF9800", fg="white", font=("Arial", 12))
+button_reset.pack(pady=20)
+
+# Menjalankan GUI
+load_data()
+
+root.mainloop()
+
+# Save values when the program ends
+save_value(str(pengeluaran), file_name1)
+save_value(str(pendapatan), file_name2)
